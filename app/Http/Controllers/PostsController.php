@@ -56,9 +56,9 @@ class PostsController extends Controller
     public function show($id)
     {
         
-       $posts = Post::find($id);
+    $post = Post::find($id);
         
-       return view('show', compact('posts'));
+       return view('show', compact('post'));
     }
 
     /**
@@ -70,9 +70,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         
-       $posts = Post::find($id);
+       $post = Post::find($id);
         
-       return view ('edit', compact('posts'));
+       return view ('edit', compact('post'));
     }
 
     /**
@@ -84,12 +84,12 @@ class PostsController extends Controller
      */
     public function update($id)
     {
-        $posts = Post::find($id);
+        $post = Post::find($id);
         
-        $posts->topic = request('topic');
-        $posts->summary = request('summary');
+        $post->topic = request('topic');
+        $post->summary = request('summary');
         
-        $posts->save();
+        $post->save();
         
         return redirect('/forums');
     }

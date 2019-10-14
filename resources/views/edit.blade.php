@@ -14,7 +14,7 @@ Edit Post
 
 <div class="box">
 
-<form method="POST" action="/forums/{{ $posts->id}}">
+<form method="POST" action="/forums/{{ $post->id}}">
 
 {{ method_field('PATCH') }} 
 
@@ -27,7 +27,7 @@ Edit Post
 
 <div class ="control">
 
-<input type="text" class="input" name="topic" placeholder="Topic" value="{{ $posts->topic}}">
+<input type="text" class="input" name="topic" placeholder="Topic" value="{{ $post->topic}}">
 
 </div>
 </div>
@@ -39,7 +39,7 @@ Edit Post
 
 <div class ="control">
 
-<textarea name="summary" class="textarea" >{{ $posts->summary}}</textarea>
+<textarea name="summary" class="textarea" >{{ $post->summary}}</textarea>
 
 </div>
 </div>
@@ -55,7 +55,7 @@ Edit Post
 
 </form>
 
-<form method="POST" action="/forums/{{ $posts->id}}">
+<form method="POST" action="/forums/{{ $post->id}}">
 
 {{ method_field('DELETE') }} 
 

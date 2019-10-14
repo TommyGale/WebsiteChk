@@ -2,7 +2,7 @@
 
 @section('title')
 
-Forum post
+Forum Post
 
 @endsection
 
@@ -11,14 +11,14 @@ Forum post
 <div class= "box">
 
 
-<h1 class="title">{{ $posts->topic}}</h1>
+<h1 class="title">{{ $post->topic}}</h1>
 
-<div class="content">{{ $posts->summary}}</div>
+<div class="content">{{ $post->summary}}</div>
 
 
 <p>
 
-<a href="/forums/{{ $posts->id}}/edit">Edit Post</a>
+<a href="/forums/{{ $post->id}}/edit">Edit Post</a>
 </p>
 
 </div>
