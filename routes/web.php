@@ -11,28 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/' ,'MainController@home');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about' ,'MainController@about');
 
-Route::get('/contact', function () {
-    
-    return view('contact')->with([
-    'contacts' =>
-    ['Email address: ThomasGale@gmail.com',
-    'Phone number: 07845193244',
-    'Address: 21 Fake St',
-    'Postcode: WF10 5X3'],
-    
-    'help' => 'If you have any queries feel free to contact us!'
+Route::get('/contact' ,'MainController@contact');
 
-    ]);
-    
-    
-    
-});
+Route:: resource('forums', 'PostsController');
+
 
