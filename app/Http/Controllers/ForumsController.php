@@ -27,8 +27,8 @@ class ForumsController extends Controller
     public function store()
     {
        Post::create(request()->validate([ 
-      'topic'=> ['required', 'min:3','max:255'],
-      'summary'=> ['required', 'min:3','max:255']
+      'topic'=> ['required', 'min:4','max:50'],
+      'summary'=> ['required', 'min:10','max:255']
       ]));
           
        return redirect('/posts');

@@ -1,78 +1,60 @@
-@extends('layout')
+@extends('layout') @section('title') Edit Post @endsection @section('content')
 
-@section('title')
-
-Edit Post
-
-@endsection
-
-
-@section('content')
-
-<h1 class ="title">Edit Post</h1>
-
+<h1 class="title">Edit Post</h1>
 
 <div class="box">
 
-<form method="POST" action="/posts/{{ $post->id}}">
+    <form method="POST" action="/posts/{{ $post->id}}">
 
-{{ method_field('PATCH') }} 
+        {{ method_field('PATCH') }} {{ csrf_field() }}
 
-{{ csrf_field() }}
+        <div class="field">
 
-<div class="field">
+            <label class="label" for="topic">Title</label>
 
-<label class="label" for="topic">Title</label>
+            <div class="control">
 
+                <input type="text" class="input" name="topic" placeholder="Topic" value="{{ $post->topic}}" required>
 
-<div class ="control">
+            </div>
+        </div>
 
-<input type="text" class="input" name="topic" placeholder="Topic" value="{{ $post->topic}}">
+        <div class="field">
 
-</div>
-</div>
+            <label class="label" for="summary">Summary</label>
 
-<div class="field">
+            <div class="control">
 
-<label class="label" for="summary">Summary</label>
+                <textarea name="summary" class="textarea" required>{{ $post->summary}}</textarea>
 
+            </div>
+        </div>
 
-<div class ="control">
+        <div class="field">
 
-<textarea name="summary" class="textarea" >{{ $post->summary}}</textarea>
+            <div class="control">
 
-</div>
-</div>
+                <button type="submit" class="button is-link">Update Post</button>
 
-<div class="field">
+            </div>
+        </div>
 
-<div class ="control">
+        @include ('errors')
 
-<button type="submit" class="button is-link">Update Post</button>
+    </form>
 
-</div>
-</div>
+    <form method="POST" action="/posts/{{ $post->id}}">
 
-@include ('errors')
+        {{ method_field('DELETE') }} {{ csrf_field() }}
 
-</form>
+        <div class="field">
 
-<form method="POST" action="/posts/{{ $post->id}}">
+            <div class="control">
 
-{{ method_field('DELETE') }} 
+                <button type="submit" class="button">Delete Post</button>
 
-{{ csrf_field() }}
-
-
-
-<div class="field">
-
-<div class ="control">
-
-<button type="submit" class="button">Delete Post</button>
-
-</div>
-</div>
+            </div>
+        </div>
 
 </div>
 @include ('errors')

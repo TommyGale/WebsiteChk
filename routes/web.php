@@ -19,5 +19,12 @@ Route::get('/about' ,'MainController@about');
 
 Route::get('/contact' ,'MainController@contact');
 
+Route::patch('/comments/{comment}', 'PostCommentsController@update');
+
+//Route::patch('/comments/{comment}', 'PostCommentsController@store');
+
+//Route::patch('/comments/{comment}', 'PostCommentsController@destroy');
+
+
 
 
