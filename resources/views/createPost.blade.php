@@ -10,7 +10,7 @@ Create new Post
 
 <h1>Create a New Post</h1>
 
-<form method ="POST" action="/forums">
+<form method ="POST" action="/posts">
 
 {{ csrf_field() }}
 

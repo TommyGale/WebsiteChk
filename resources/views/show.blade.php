@@ -18,7 +18,7 @@ Forum Post
 
 <p>
 
-<a href="/forums/{{ $post->id}}/edit">Edit Post</a>
+<a href="/posts/{{ $post->id}}/edit">Edit Post</a>
 </p>
 
 </div>

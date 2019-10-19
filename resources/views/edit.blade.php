@@ -14,7 +14,7 @@ Edit Post
 
 <div class="box">
 
-<form method="POST" action="/forums/{{ $post->id}}">
+<form method="POST" action="/posts/{{ $post->id}}">
 
 {{ method_field('PATCH') }} 
 

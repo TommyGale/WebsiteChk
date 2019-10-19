@@ -10,13 +10,13 @@ Forums
 
 <h1>Forums</h1>
 
-<p>Got something you would like to discuss? <a href ="/forums/create">Click here </a> to post on the forum</p>
+<p>Got something you would like to discuss? <a href ="/posts/create">Click here </a> to post on the forum</p>
 
 <ul>
 
 @foreach($posts as $post)
 
-<a href ="/forums/{{ $post->id}}">
+<a href ="/posts/{{ $post->id}}">
 
 <li>{{ $post->topic }}</li>
   

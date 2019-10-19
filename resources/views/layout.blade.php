@@ -34,7 +34,7 @@ h1 {
 <li><a href = "/">Home</a></li>
 <li><a href = "/about">About us</a></li>
 <li><a href = "/contact">Contact us</a></li>
-<li><a href = "/forums">Forums</a></li>
+<li><a href = "/posts">Forums</a></li>
 
 </ul>
 

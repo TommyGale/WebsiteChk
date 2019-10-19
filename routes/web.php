@@ -11,12 +11,13 @@
 |
 */
 
+Route:: resource('posts', 'ForumsController');
+
 Route::get('/' ,'MainController@home');
 
 Route::get('/about' ,'MainController@about');
 
 Route::get('/contact' ,'MainController@contact');
 
-Route:: resource('forums', 'ForumsController');
 
 
