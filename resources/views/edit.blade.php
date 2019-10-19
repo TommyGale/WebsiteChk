@@ -53,9 +53,11 @@ Edit Post
 </div>
 </div>
 
+@include ('errors')
+
 </form>
 
-<form method="POST" action="/forums/{{ $post->id}}">
+<form method="POST" action="/posts/{{ $post->id}}">
 
 {{ method_field('DELETE') }} 
 
@@ -73,6 +75,6 @@ Edit Post
 </div>
 
 </div>
-
+@include ('errors')
 </form>
 @endsection

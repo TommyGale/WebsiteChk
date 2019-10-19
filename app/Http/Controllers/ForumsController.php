@@ -36,36 +36,31 @@ class ForumsController extends Controller
 
     
     public function show(Post $post)
-    {
-         //$post = Post::findOrFail($id);
-         
-        
+    {    
          
          return view ('show', compact('post'));
     }
 
    
-    public function edit($id)
+    public function edit(Post $post)
     {
-        
-        $post = Post::findOrFail($id);
         
        return view ('edit', compact('post')); 
     }
 
    
-    public function update($id)
+    public function update(Post $post)
     {
-        $post = Post::findOrFail($id);
+        
         $post->update(request(['topic','summary']));
         
         return redirect('/posts');
     }
 
    
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-       $post = Post::findOrFail($id);
+      
        $post->delete();
        
        return redirect('/posts');

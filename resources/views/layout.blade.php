@@ -18,6 +18,12 @@ h1 {
     
 }
 
+h2 {
+    font-weight: bold;
+    text-align:center;
+    text-decoration: underline;
+}
+
 .container {
     text-align:center;
 }
@@ -34,7 +40,7 @@ h1 {
 <li><a href = "/">Home</a></li>
 <li><a href = "/about">About us</a></li>
 <li><a href = "/contact">Contact us</a></li>
-<li><a href = "/posts">Forums</a></li>
+<li><a href = "/posts">Posts</a></li>
 
 </ul>
 

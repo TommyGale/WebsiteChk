@@ -12,7 +12,7 @@ Contact
 
 
 <br>
-<p><b>{{ $help }}<b></p>
+<p>{{ $help }}</p>
 <br>
 
 <ul>
