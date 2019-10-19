@@ -12,16 +12,10 @@ class PostCommentsController extends Controller
 {
     public function update(Comment $comment) {
         
+            $comment->increment('like');
+            return redirect()->back();
+        }
         
-        $comment->increment('like');
-             
-        return redirect()->back();
-             
-    }
     
    
-    
-
-    
-    
 }

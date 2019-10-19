@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('post_id');
             $table->text('description');
-            $table->increments('like');
+            $table->integer('like');
             $table->timestamps();
         });
     }
