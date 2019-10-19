@@ -17,6 +17,6 @@ Route::get('/about' ,'MainController@about');
 
 Route::get('/contact' ,'MainController@contact');
 
-Route:: resource('forums', 'PostsController');
+Route:: resource('forums', 'ForumsController');
 
 

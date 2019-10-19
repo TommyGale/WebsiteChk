@@ -21,11 +21,13 @@ h1 {
 .container {
     text-align:center;
 }
+
 </style>
 
 </head>
 
 <body>
+
 
 <ul>
 
@@ -35,6 +37,7 @@ h1 {
 <li><a href = "/forums">Forums</a></li>
 
 </ul>
+
 
 <div class="container">
 

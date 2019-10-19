@@ -11,9 +11,9 @@ Forum Post
 <div class= "box">
 
 
-<h1 class="title">{{ $post->topic}}</h1>
+<h1 class="title">{{ $post->topic }}</h1>
 
-<div class="content">{{ $post->summary}}</div>
+<div class="content">{{ $post->summary }}</div>
 
 
 <p>
