@@ -10,16 +10,24 @@ use App\Post;
 
 class PostCommentsController extends Controller
 {
-    public function update(Comment $comment) {
-        
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['']);
+    }
     
-            
+    public function update(Comment $comment) {
        
-            //$comment->update([
-            //'like' => request()->has('like')]); 
+            if(request()->has('like')) {
+                
+                $comment->increment('like');
             
-            $comment->increment('like');
-            
+            }
+                
+            elseif(request()->has('dislike')) {
+                
+                $comment->increment('dislike');
+            }
+                
              return redirect()->back();
    
 }
@@ -30,6 +38,8 @@ class PostCommentsController extends Controller
       'description'=> ['required', 'min:4','max:255']
       ]);
         
+        $attributes['created_by'] = auth()->id();
+     
         $post->addComment($attributes);
         
         return redirect()->back();

@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ForumsController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
    
     public function index()
     {
@@ -26,10 +31,14 @@ class ForumsController extends Controller
    
     public function store()
     {
-       Post::create(request()->validate([ 
+      $attributes = request()->validate([ 
       'topic'=> ['required', 'min:4','max:50'],
       'summary'=> ['required', 'min:10','max:255']
-      ]));
+      ]);
+      
+      $attributes['user_id'] = auth()->id();
+      
+      Post::create($attributes);
           
        return redirect('/posts');
     }
@@ -52,10 +61,9 @@ class ForumsController extends Controller
     public function update(Post $post)
     {
         
-        request()->validate([ 
-      'topic'=> ['required', 'min:4','max:50'],
-      'summary'=> ['required', 'min:10','max:255']
-      ]);
+        $post->update(request()->validate([
+        'topic' => ['required', 'min:4','max:50'],
+        'summary' => ['required', 'min:10','max:255']]));
         
         return redirect('/posts');
     }
@@ -68,4 +76,5 @@ class ForumsController extends Controller
        
        return redirect('/posts');
     }
+    
 }

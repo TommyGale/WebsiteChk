@@ -28,3 +28,7 @@ Route::patch('/comments/{comment}', 'PostCommentsController@update');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -41,6 +41,8 @@ h2 {
 <li><a href = "/about">About us</a></li>
 <li><a href = "/contact">Contact us</a></li>
 <li><a href = "/posts">Posts</a></li>
+<li><a href = "/login">Login</a></li>
+<li><a href = "/register">Register</a></li>
 
 </ul>
 

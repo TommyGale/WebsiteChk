@@ -72,7 +72,18 @@ Post
 
 </ul>
 
-<button type="submit" class="button" name="like">Likes:{{$comment->like}}</button>
+<button type="submit" class="button" name="like">Like:{{$comment->like}}</button>
+
+
+
+</form>
+
+<form method="POST" action="/comments/{{ $comment->id }}">
+
+{{ method_field('PATCH') }} {{ csrf_field() }}
+
+
+<button type="submit" class="button" name="dislike">Dislike:{{$comment->dislike}}</button>
 
 
 
