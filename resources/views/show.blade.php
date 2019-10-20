@@ -22,6 +22,35 @@ Post
 </div>
 
 
+<div class="box">
+
+<form method="POST" action="/posts/{{ $post->id}}/comments">
+
+ {{ csrf_field() }}
+
+<div class="field">
+
+<label class="label" for="description">Comment</label>
+
+</div>
+
+<div class="field">
+
+<input type="text" class="input" name="description" placeholder="Write a comment" required>
+
+</div>
+
+<button type="submit" class="button is-link">Publish comment</button>
+
+
+@include ('errors')
+
+</form>
+
+</div>
+
+
+
 
 @if ($post->comments->count())
 
@@ -46,7 +75,10 @@ Post
 <button type="submit" class="button" name="like">Likes:{{$comment->like}}</button>
 
 
+
 </form>
+
+
 
 
 </div>
@@ -57,8 +89,8 @@ Post
 
 </div>
 
-@endif
 
+@endif
 
 
 @endsection

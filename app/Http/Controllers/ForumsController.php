@@ -52,7 +52,10 @@ class ForumsController extends Controller
     public function update(Post $post)
     {
         
-        $post->update(request(['topic','summary']));
+        request()->validate([ 
+      'topic'=> ['required', 'min:4','max:50'],
+      'summary'=> ['required', 'min:10','max:255']
+      ]);
         
         return redirect('/posts');
     }
