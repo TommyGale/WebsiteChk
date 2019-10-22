@@ -14,6 +14,8 @@ Post
 
 <div class="content">{{ $post->summary }}</div>
 
+@can('update', $post)
+
 <p>
 
 <a href="/posts/{{ $post->id}}/edit">Edit Post</a>
@@ -21,6 +23,7 @@ Post
 
 </div>
 
+@endcan
 
 <div class="box">
 

@@ -25,16 +25,14 @@ class ForumsController extends Controller
     
     public function create()
     {
+        
          return view ('createPost');
     }
 
    
     public function store()
     {
-      $attributes = request()->validate([ 
-      'topic'=> ['required', 'min:4','max:50'],
-      'summary'=> ['required', 'min:10','max:255']
-      ]);
+      $attributes = $this->postValid();
       
       $attributes['user_id'] = auth()->id();
       
@@ -45,7 +43,8 @@ class ForumsController extends Controller
 
     
     public function show(Post $post)
-    {    
+    {
+        
          
          return view ('show', compact('post'));
     }
@@ -53,6 +52,16 @@ class ForumsController extends Controller
    
     public function edit(Post $post)
     {
+        if(\Gate::denies('update', $post))
+        {
+            return redirect()->back();
+        }
+        
+        
+        if($post->user_id !== auth()->id()){
+            
+          return redirect()->back();
+        }
         
        return view ('edit', compact('post')); 
     }
@@ -61,9 +70,8 @@ class ForumsController extends Controller
     public function update(Post $post)
     {
         
-        $post->update(request()->validate([
-        'topic' => ['required', 'min:4','max:50'],
-        'summary' => ['required', 'min:10','max:255']]));
+        
+        $post->update($this->postValid());
         
         return redirect('/posts');
     }
@@ -71,10 +79,20 @@ class ForumsController extends Controller
    
     public function destroy(Post $post)
     {
-      
+        
+        
        $post->delete();
        
        return redirect('/posts');
+    }
+    
+    protected function postValid() {
+        
+        return request()->validate([
+         'topic' => ['required', 'min:4','max:50'],
+        'summary' => ['required', 'min:10','max:255']
+        ]);
+        
     }
     
 }

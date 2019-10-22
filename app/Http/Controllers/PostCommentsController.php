@@ -34,15 +34,21 @@ class PostCommentsController extends Controller
 
  public function store(Post $post) {
      
-    $attributes = request()->validate([ 
-      'description'=> ['required', 'min:4','max:255']
-      ]);
+    $attributes = $this->commentValid();
         
         $attributes['created_by'] = auth()->id();
      
         $post->addComment($attributes);
         
         return redirect()->back();
+    }
+    
+    protected function commentValid() {
+        
+        return request()->validate([
+         'description' => ['required', 'min:4','max:50']
+        ]);
+        
     }
 
 }
