@@ -8,10 +8,30 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('title', 'Laravel') }}</title>
+    <title>@yield('title','Laravel')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    <style>
+h1 {
+    font-size:34px;
+    text-align:center;
+    text-decoration: underline;
+    font-weight: bold;
+    
+}
+h2 {
+    font-weight: bold;
+    text-align:center;
+    text-decoration: underline;
+}
+.container {
+    text-align:center;
+}
+</style>
+    
+    
 </head>
 <body>
     <div id="app">
