@@ -39,7 +39,7 @@ class ForumsController extends Controller
       
       $post = Post::create($attributes);
       
-      Mail::to($post->owner->email)->send(
+      \Mail::to($post->user->email)->send(
       new PostCreated($post)
       );
           
