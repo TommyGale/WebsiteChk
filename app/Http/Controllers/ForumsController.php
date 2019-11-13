@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Mail\PostCreated;
 use Illuminate\Http\Request;
 
 class ForumsController extends Controller
@@ -36,7 +37,11 @@ class ForumsController extends Controller
       
       $attributes['user_id'] = auth()->id();
       
-      Post::create($attributes);
+      $post = Post::create($attributes);
+      
+      Mail::to($post->owner->email)->send(
+      new PostCreated($post)
+      );
           
        return redirect('/posts');
     }
