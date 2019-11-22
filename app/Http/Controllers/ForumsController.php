@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use App\Mail\PostCreated;
+use App\Mail\PostCreated as PostCreatedMail;
+use App\Events\PostCreated;
 use Illuminate\Http\Request;
 
 class ForumsController extends Controller
@@ -33,16 +34,13 @@ class ForumsController extends Controller
    
     public function store()
     {
+        
       $attributes = $this->postValid();
       
       $attributes['user_id'] = auth()->id();
       
       $post = Post::create($attributes);
-      
-      \Mail::to($post->user->email)->send(
-      new PostCreated($post)
-      );
-          
+             
        return redirect('/posts');
     }
 
@@ -91,13 +89,16 @@ class ForumsController extends Controller
        return redirect('/posts');
     }
     
-    protected function postValid() {
+    protected function postValid () {
+    
         
         return request()->validate([
          'topic' => ['required', 'min:4','max:50'],
         'summary' => ['required', 'min:10','max:255']
-        ]);
         
+        ]);
+   
+
     }
     
 }

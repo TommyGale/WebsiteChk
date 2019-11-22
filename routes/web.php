@@ -1,5 +1,6 @@
 <?php
 
+
 Route:: resource('posts', 'ForumsController');
 
 Route::get('/' ,'MainController@home');

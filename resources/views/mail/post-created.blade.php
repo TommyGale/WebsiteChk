@@ -1,5 +1,8 @@
 @component('mail::message')
-# New Post : {{ $post-> topic }}
+
+# <u>Post Created</u>
+
+<h1>{{ $post-> topic }}</h1>
 
 {{ $post-> summary }}
 
@@ -7,6 +10,7 @@
 View Post
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Thanks for sharing your post,<br>
+Thomas Gale
+
 @endcomponent

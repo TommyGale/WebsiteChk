@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Comment;
-
 use App\Post;
+use App\Notifications\CommentAddedPost;
 
 class PostCommentsController extends Controller
 {
@@ -39,6 +38,8 @@ class PostCommentsController extends Controller
         $attributes['created_by'] = auth()->id();
      
         $post->addComment($attributes);
+        
+        $post->user->notify(new CommentAddedPost);
         
         return redirect()->back();
     }
