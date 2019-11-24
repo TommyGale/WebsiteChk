@@ -47,9 +47,9 @@ class CommentAddedPost extends Notification
         $url = url('/posts/' . $this->post['id']);
         
         return (new MailMessage)
-                    ->subject('Someone commented on one of your posts!')
-                    ->line('Take a look at your post to see what people have commented.')
-                    ->action('Click here to view the comments made to your post', $url)
+                    ->subject($this->post->user['name'] .' commented on your post!')
+                    ->line('Click the link below to see what ' .$this->post->user['name']. ' had to say.')
+                    ->action('View comments', $url)
                     ->line('Thank you for using our services');
     }
 
