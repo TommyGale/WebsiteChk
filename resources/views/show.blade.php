@@ -93,18 +93,25 @@ Post
 </form>
 
 
-
-
 </div>
 
 @endforeach
 
 </div>
 
+@if (session('message'))
+
+<p>{{ session('message') }}</p>
+
+@endif
+
 </div>
 
 
+
+
 @endif
+
 
 
 @endsection

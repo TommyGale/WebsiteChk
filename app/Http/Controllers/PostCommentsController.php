@@ -40,6 +40,8 @@ class PostCommentsController extends Controller
         $post->addComment($attributes);
         
         $post->user->notify(new CommentAddedPost($post));
+        
+        flash('Your comment has been posted.');
                 
         return redirect()->back();
     }
@@ -52,5 +54,6 @@ class PostCommentsController extends Controller
         ]);
         
     }
+    
 
 }

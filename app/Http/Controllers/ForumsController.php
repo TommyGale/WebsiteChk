@@ -27,7 +27,6 @@ class ForumsController extends Controller
     
     public function create()
     {
-        
          return view ('createPost');
     }
 
@@ -40,7 +39,9 @@ class ForumsController extends Controller
       $attributes['user_id'] = auth()->id();
       
       $post = Post::create($attributes);
-             
+      
+      flash('Your post has been created.');
+      
        return redirect('/posts');
     }
 
@@ -76,6 +77,8 @@ class ForumsController extends Controller
         
         $post->update($this->postValid());
         
+        flash('Your post has been updated.');
+        
         return redirect('/posts');
     }
 
@@ -85,6 +88,8 @@ class ForumsController extends Controller
         
         
        $post->delete();
+       
+       flash('Your post has been deleted.');
        
        return redirect('/posts');
     }
@@ -100,5 +105,6 @@ class ForumsController extends Controller
    
 
     }
+
     
 }

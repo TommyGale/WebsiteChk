@@ -1,17 +1,19 @@
 <?php
 
+use Illuminate\Http\Request;
 
 Route:: resource('posts', 'ForumsController');
 
-//Route::get('/' ,'MainController@home');
+Route::get('/' ,'MainController@home');
 
-Route::get('/', function()
-{
-   return session('name', 'Guest'); 
-   //session(['name' => 'JohnDoe']);
+//Route::get('/', function(Request $request)
+//{
+   //$request->flash();
+   //$request->session()->put('name', 'JohnDoe');
+   //return $request->session()->get('name', 'Guest');
    
-   return view ('welcome');
-});
+  // return view ('welcome');
+//});
 
 Route::get('/about' ,'MainController@about');
 

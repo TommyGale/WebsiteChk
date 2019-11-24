@@ -44,13 +44,13 @@ class User extends Authenticatable
       
     }
     
-    public function hasToken() {        
-    
+    public function hasToken() {
+        
         return (bool) $this->remember_token;
       
     }
     
-    public function noToken() {        
+    public function noToken() {
     
         return ! $this->hasToken();
       

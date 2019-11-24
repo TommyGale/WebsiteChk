@@ -10,6 +10,6 @@ Home
 
 <h1>Homepage</h1>
 
-<?php //<p>{{ $greet }}</p> ?>
+<p>{{ $greet }}</p>
    
 @endsection
