@@ -2,6 +2,8 @@
 
 namespace App;
 
+
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -10,6 +12,8 @@ class User extends Authenticatable
     
     
     use Notifiable;
+    
+    
 
     /**
      * The attributes that are mass assignable.
@@ -34,6 +38,12 @@ class User extends Authenticatable
         return $this->hasMany(Post::class, 'user_id');
     }
     
+    public function hasPost() {
+        
+        return (bool) $this->posts;
+      
+    }
+    
     public function hasToken() {        
     
         return (bool) $this->remember_token;
@@ -45,5 +55,5 @@ class User extends Authenticatable
         return ! $this->hasToken();
       
     }
-    
+       
 }
