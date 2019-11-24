@@ -39,10 +39,11 @@ class PostCommentsController extends Controller
      
         $post->addComment($attributes);
         
-        $post->user->notify(new CommentAddedPost);
-        
+        $post->user->notify(new CommentAddedPost($post));
+                
         return redirect()->back();
     }
+    
     
     protected function commentValid() {
         

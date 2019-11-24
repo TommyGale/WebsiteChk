@@ -8,11 +8,11 @@ class MainController extends Controller
 {
     public function home() {
         return view('welcome')->with([
-  
-
-    'greet' => 'Welcome to the website. You should check out our Posts page to get involved in some discussions!'
+        
+    'greet' => 'Welcome to the website.You should check out our Posts page to get involved in some discussions!'
 
     ]);
+    
     }
     
      public function about() {

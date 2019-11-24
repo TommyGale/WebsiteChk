@@ -33,4 +33,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class, 'user_id');
     }
+    
+    public function hasToken() {        
+    
+        return (bool) $this->remember_token;
+      
+    }
+    
+    public function noToken() {        
+    
+        return ! $this->hasToken();
+      
+    }
+    
 }

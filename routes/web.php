@@ -3,7 +3,15 @@
 
 Route:: resource('posts', 'ForumsController');
 
-Route::get('/' ,'MainController@home');
+//Route::get('/' ,'MainController@home');
+
+Route::get('/', function()
+{
+   return session('name', 'Guest'); 
+   //session(['name' => 'JohnDoe']);
+   
+   return view ('welcome');
+});
 
 Route::get('/about' ,'MainController@about');
 

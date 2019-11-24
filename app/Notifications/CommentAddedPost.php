@@ -18,10 +18,11 @@ class CommentAddedPost extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($post)
     {
-      
+   $this->post = $post;     
     }
+    
 
     /**
      * Get the notification's delivery channels.
@@ -43,7 +44,7 @@ class CommentAddedPost extends Notification
     public function toMail($notifiable)
     {
         
-        $url = url('/posts/' . $this->post);
+        $url = url('/posts/' . $this->post['id']);
         
         return (new MailMessage)
                     ->subject('Someone commented on one of your posts!')
