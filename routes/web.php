@@ -6,13 +6,18 @@ Route:: resource('posts', 'ForumsController');
 
 Route::get('/' ,'MainController@home');
 
-//Route::get('/', function(Request $request)
+//Route::get('/', function()
 //{
-   //$request->flash();
-   //$request->session()->put('name', 'JohnDoe');
-   //return $request->session()->get('name', 'Guest');
-   
-  // return view ('welcome');
+  //$user = App\User::first();
+  
+  //$post = $user->posts()->create([
+  
+  //'topic' => 'A tagged post',
+  //'summary' => 'All tagg//ed up'
+  
+  //]);
+  
+  //$post->tags()->attach(1);
 //});
 
 Route::get('/about' ,'MainController@about');

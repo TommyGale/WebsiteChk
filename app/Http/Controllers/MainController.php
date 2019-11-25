@@ -10,6 +10,8 @@ class MainController extends Controller
         return view('welcome')->with([
         
     'greet' => 'Welcome to the website.You should check out our Posts page to get involved in some discussions!'
+    
+
 
     ]);
     
