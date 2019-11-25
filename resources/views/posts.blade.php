@@ -22,7 +22,11 @@ Forum Posts
 
 @endif
 
+@if (session('message'))
 
+<p><b>{{ session('message') }}</b></p>
+
+@endif
 
 <ul>
 
@@ -38,10 +42,4 @@ Forum Posts
 
 </ul>
 
-@if (session('message'))
-
-<p>{{ session('message') }}</p>
-
-@endif
-   
 @endsection

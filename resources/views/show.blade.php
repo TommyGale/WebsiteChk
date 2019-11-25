@@ -25,6 +25,12 @@ Post
 
 @endcan
 
+@if (session('message'))
+
+<p><b>{{ session('message') }}</b></p>
+
+@endif
+
 <div class="box">
 
 <form method="POST" action="/posts/{{ $post->id}}/comments">
@@ -51,7 +57,6 @@ Post
 </form>
 
 </div>
-
 
 
 
@@ -99,11 +104,6 @@ Post
 
 </div>
 
-@if (session('message'))
-
-<p>{{ session('message') }}</p>
-
-@endif
 
 </div>
 

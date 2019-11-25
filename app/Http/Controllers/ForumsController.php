@@ -34,11 +34,13 @@ class ForumsController extends Controller
     public function store()
     {
         
-      $attributes = $this->postValid();
+      //$attributes = $this->postValid();
       
-      $attributes['user_id'] = auth()->id();
+      //$attributes['user_id'] = auth()->id();
       
-      $post = Post::create($attributes);
+      //$post = Post::create($attributes);
+      
+      auth()->user()->posts()->create($attributes= $this->postValid());
       
       flash('Your post has been created.');
       
