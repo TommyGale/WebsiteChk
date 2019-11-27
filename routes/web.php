@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 
 Route:: resource('posts', 'ForumsController');
 
+Route::resource('subscriptions', 'SubscriptionsController');
+
 Route::get('/' ,'MainController@home');
 
 //Route::get('/', function()

@@ -18,5 +18,6 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
     
+    use Likable;
     
 }

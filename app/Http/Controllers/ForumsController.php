@@ -50,7 +50,6 @@ class ForumsController extends Controller
     
     public function show(Post $post)
     {
-        
          
          return view ('show', compact('post'));
     }

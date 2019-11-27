@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Events\PostCreated;
+use Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ class Post extends Model
 {
     
       use Notifiable;
+      use Likable;
     
       protected $guarded = [];
       
@@ -18,17 +20,14 @@ class Post extends Model
       
       'created' => PostCreated::class ];
       
-      //protected static function boot(){
-          
-         // parent::boot();
-          //static::created(function ($post) {
-              
-             // Mail::to($post->user->email)->send(
-              //new PostCreated($post)
-     // );
-              
-         // });
-          
+      //public static function boot() {
+ 
+        //parent::boot();
+        
+        //static::updating(function($post){
+            
+            //$post->updated()->attach(Auth::id());
+        //});
       //}
       
       public function user()
@@ -51,7 +50,6 @@ class Post extends Model
    {
        return $this->belongsToMany(Tag::class)->withTimestamps();
    }
-   
    
 }
 

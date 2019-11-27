@@ -13,7 +13,8 @@ Post
 <h1>{{ $post->topic }}</h1>
 
 <div class="content">{{ $post->summary }}</div>
-
+<div>Posted by: {{ $post->user->name }}</div>
+<div>Updated: {{ $post->updated_at->diffForHumans() }}</div>
 @can('update', $post)
 
 <p>
